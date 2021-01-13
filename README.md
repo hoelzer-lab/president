@@ -9,18 +9,20 @@ Calculate pairwise nucleotide identity with respect to a reference sequence.
 Given a reference and a query sequence (which can be fragmented), calculate
 pairwise nucleotide identity with respect to the reference sequence.
 
+#### Requirements:
+```
+conda create -y -n president -c bioconda python=3.8 mafft screed && conda activate president
+```
+
 #### Usage:
 ```
-python pairwise_nucleotide_identity.py --query tiny_test.masked_consensus.fasta --reference NC_045512.2.fasta -x 3000 -p 8
+python pairwise_nucleotide_identity.py --query NC_045512.2.20mis.fasta --reference NC_045512.2.fasta -x 3000 -p 8
 ```
 
 #### Notes:
 - nextstrain uses a quality threshold of < 3000 non-canonical nucleotides
 - `N`s in the query are treated as mismatches, uncomment the corresponding line
 (below) to ignore `N`s
-
-#### Requirements:
-- conda install -y -c bioconda python=3.8 mafft screed
 
 #### ANI definition:
 - https://pubmed.ncbi.nlm.nih.gov/17220447/

@@ -79,7 +79,7 @@ def main():
         help='Query genome')
     parser.add_argument('-x', '--max_invalid', type=int, default=3000,
         help='Maximum number of non-ACTG positions allowed in query')
-    parser.add_argument('-p', '--threads', type=int, default=8,
+    parser.add_argument('-p', '--threads', type=int, default=4,
         help='Number of threads to use')
     args = parser.parse_args()
 
@@ -90,7 +90,7 @@ def main():
 
     print('Running Mafft ...')
     _, path = tempfile.mkstemp()
-    cmd = f'linsi --addfragments {args.query} --thread {args.threads} --adjustdirectionaccurately --keeplength --anysymbol --nomemsave {args.reference} > {path}'
+    cmd = f'linsi --quiet --addfragments {args.query} --thread {args.threads} --adjustdirectionaccurately --keeplength --anysymbol --nomemsave {args.reference} > {path}'
     _ = subprocess.check_output(cmd, shell=True)
 
 
