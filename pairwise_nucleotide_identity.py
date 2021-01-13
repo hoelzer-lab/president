@@ -90,7 +90,7 @@ def main():
 
     print('Running Mafft ...')
     _, path = tempfile.mkstemp()
-    cmd = f'linsi --quiet --addfragments {args.query} --thread {args.threads} --adjustdirectionaccurately --keeplength --anysymbol --nomemsave {args.reference} > {path}'
+    cmd = f'linsi --quiet --addfragments {args.query} --thread {args.threads} --adjustdirectionaccurately --keeplength --anysymbol {args.reference} > {path}'
     _ = subprocess.check_output(cmd, shell=True)
 
 
