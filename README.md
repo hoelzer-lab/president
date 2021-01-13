@@ -7,7 +7,9 @@
 Calculate pairwise nucleotide identity with respect to a reference sequence.
 
 Given a reference and a query sequence (which can be fragmented), calculate
-pairwise nucleotide identity with respect to the reference sequence.
+pairwise nucleotide identity with respect to the reference sequence relative 
+to the entire length of the reference. Only informative nucleotides (A,T,G,C) 
+are considered identical to each other.
 
 #### Requirements:
 ```
@@ -21,11 +23,8 @@ python pairwise_nucleotide_identity.py --query NC_045512.2.20mis.fasta --referen
 
 #### Notes:
 - nextstrain uses a quality threshold of < 3000 non-canonical nucleotides
-- `N`s in the query are treated as mismatches, uncomment the corresponding line
-(below) to ignore `N`s
+- Ns in the query are treated as mismatches, uncomment the corresponding line directly in the code to ignore Ns
 
 #### ANI definition:
 - https://pubmed.ncbi.nlm.nih.gov/17220447/
 
-#### Spec:
-> Sequence identity to a reference genome sequence (e.g. NC_045512.2) should be calculated at the nucleotide level relative to the entire length of the reference. Only informative nucleotides (A,T,G,C) are considered identical to each other.
