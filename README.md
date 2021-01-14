@@ -36,7 +36,7 @@ c) 20 non-ACTG symbols out of 29903
 
 a) Percentage identity based on hamming distance and including gaps/ Ns as mismatches 
 
-b) Percentage identity only based on A, T, C, G characters
+b) Percentage identity only based on A, T, C, G characters `(ACTG matches / (len_query - nonACTGchars_query))`
 
 c) Count all characters in the query sequence that are not A, T, C, G
 
