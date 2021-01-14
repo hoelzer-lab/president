@@ -56,7 +56,6 @@ def calculate_nucleotide_identity(path, max_invalid):
     # Consider only sites where the query has non-ACTG characters
     # Metric issue #2 (B)
     non_canonical = sum([1 for i in qry if i not in 'ACTG'])
-    non_canonical_perc = round(non_canonical / len(qry), 2)
     if non_canonical > max_invalid:
         raise ValueError('Too many non-canonical nucleotides, abort!')
     
@@ -71,7 +70,7 @@ def calculate_nucleotide_identity(path, max_invalid):
     
     # Ns in the query don't count
     ident_non_canonical = round(same / (len(qry) - non_canonical), 4)
-    return ident, ident_non_canonical, non_canonical, non_canonical_perc
+    return ident, ident_non_canonical, non_canonical, len(qry)
 
 
 def main():
@@ -102,12 +101,12 @@ def main():
     _ = subprocess.check_output(cmd, shell=True)
 
 
-    ident, identN, nc, ncp  = calculate_nucleotide_identity(
+    ident, identN, nc, len_  = calculate_nucleotide_identity(
         path, args.max_invalid)
     os.remove(path)
     print(f'{ident} nucleotide identity')
     print(f'{identN} nucleotide identity (excluding non-ACTG)')
-    print(f'{nc} non-ACTG symbols ({ncp})')
+    print(f'{nc} non-ACTG symbols out of {len_}')
 
 
 if __name__ == "__main__":
