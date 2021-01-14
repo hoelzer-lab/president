@@ -24,6 +24,20 @@ conda create -y -n president -c bioconda python=3.8 mafft screed && conda activa
 python pairwise_nucleotide_identity.py --query NC_045512.2.20mis.fasta --reference NC_045512.2.fasta -x 3000 -p 8
 ```
 
+#### Output:
+The script provides __three different output metrics__ to assess the quality of the query sequence in comparison to the reference sequence. The rationale behind this is, that ambiguous bases (Ns) can impact sequence identity differently depending on how they are counted. 
+
+```
+Running Mafft ...
+a) 0.9987 nucleotide identity
+b) 0.9994 nucleotide identity (excluding non-ACTG)
+c) 20 non-ACTG symbols out of 29903
+```
+
+a) Percentage identity based on hamming distance and including gaps/ Ns as mismatches 
+b) Percentage identity only based on A, T, C, G characters
+c) Count all characters in the query sequence that are not A, T, C, G
+
 #### Notes:
 - nextstrain uses a quality threshold of < 3000 non-canonical nucleotides
 - Ns in the query are treated as mismatches, uncomment the corresponding line directly in the code to ignore Ns
