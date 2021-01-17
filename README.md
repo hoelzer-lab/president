@@ -6,6 +6,8 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/martinhoelzer.svg?style=social)](https://twitter.com/phiweger) 
 [![Twitter Follow](https://img.shields.io/twitter/follow/phiweger.svg?style=social)](https://twitter.com/martinhoelzer) 
 
+__Not longer maintained! Check out: [https://gitlab.com/RKIBioinformaticsPipelines/president](https://gitlab.com/RKIBioinformaticsPipelines/president)__
+
 # PRESIDENT: PaiRwisE Sequence IDENtiTy
 Calculate pairwise nucleotide identity with respect to a reference sequence.
 
